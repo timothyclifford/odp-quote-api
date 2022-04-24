@@ -1,6 +1,8 @@
 package main
 
 import (
+	"bytes"
+	"encoding/json"
 	"net/http"
 	"testing"
 
@@ -9,15 +11,26 @@ import (
 
 func TestEndpoints(t *testing.T) {
 
+	quote := getStubQuote()
+	quoteJson, _ := json.Marshal(quote)
+
 	endpoints := []struct {
 		route              string
 		method             string
 		expectedStatusCode int
+		body               []byte
 	}{
 		{
 			route:              "/",
 			method:             "GET",
 			expectedStatusCode: http.StatusOK,
+			body:               nil,
+		},
+		{
+			route:              "/quotes",
+			method:             "POST",
+			expectedStatusCode: http.StatusCreated,
+			body:               quoteJson,
 		},
 	}
 
@@ -25,8 +38,10 @@ func TestEndpoints(t *testing.T) {
 		req, _ := http.NewRequest(
 			endpoint.method,
 			endpoint.route,
-			nil,
+			bytes.NewBuffer(endpoint.body),
 		)
+
+		req.Header.Add("Content-Type", "application/json;charset=utf-8")
 
 		app := Setup()
 		res, _ := app.Test(req, -1)

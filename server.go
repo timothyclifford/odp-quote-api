@@ -14,7 +14,8 @@ func main() {
 func Setup() *fiber.App {
 	app := fiber.New()
 
-	app.Get("/", Home)
+	app.Get("/", dashboard)
+	app.Post("/quotes", createQuote)
 
 	return app
 }
