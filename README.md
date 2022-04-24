@@ -2,6 +2,7 @@
 
 ## Endpoints
 
+```
 Dashboard:          /
 Create quote:       /quote
 View/edit quote:    /quote/{id}
@@ -11,6 +12,7 @@ Create item:        /quote/{id}/item
 View/edit item:     /quote/{id}/item/{id}
 Quote summary:      /quote/{id}/summary
 Quote review:       /quote/{id}/review
+```
 
 ## Debug
 
