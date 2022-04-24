@@ -15,5 +15,5 @@ Quote review:       /quote/{id}/review
 ## Debug
 
 ```
-curl -X POST -H 'Content-Type:application/json' -d '{"Id":"id", "SalesPersonId":"sales", "Created":0, "FirstName":"Tim", "LastName":"Clifford", "Email":"tim.cliford@gmail.com", "Phone":"000", "Street":"Johnston","Suburb":"Abbotsford", "Postcode":"3000"}' http://localhost:3000/quotes
+curl -X POST -H 'Content-Type:application/json' -d '{"Id":"id", "SalesPersonId":"sales", "Created":0, "FirstName":"Mr", "LastName":"Sells-a-lot", "Email":"sales@quotes.com", "Phone":"000", "Street":"123 Blabla St","Suburb":"Blaville", "Postcode":"3000"}' http://localhost:3000/quotes
 ```
